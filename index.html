@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+</head>
+
+<body><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personaliza tu Bote</title>
+    <style>
+        /* Estilos básicos */
+        #product {
+            width: 673px;
+            height: 340px;
+            position: relative;
+            margin: 20px auto;
+            background: url('bote-base.png') no-repeat center center;
+            background-size: cover;
+        }
+        .layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .control {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="product">
+        <img id="asientoLayer" class="layer" src="asiento.png" alt="Asiento">
+        <img id="toldoLayer" class="layer" src="toldo.png" alt="Toldo">
+    </div>
+    <div class="control">
+        <label for="asientoToggle">Añadir Plataforma Popa:</label>
+        <input type="checkbox" id="asientoToggle">
+    </div>
+    <div class="control">
+        <label for="toldoToggle">Añadir Plataforma Proa Corta:</label>
+        <input type="checkbox" id="toldoToggle">
+    </div>
+    <div class="control">
+        <label for="colorSelect">Elige un color:</label>
+        <select id="colorSelect">
+            <option value="bote-rojo.png">Rojo</option>
+            <option value="bote-azul.png">Azul</option>
+            <option value="bote-verde.png">Verde</option>
+            <option value="bote-amarillo.png">Amarillo</option>
+        </select>
+    </div>
+    <button id="applyButton">Aplicar Personalización</button>
+    <script>
+        document.getElementById('applyButton').addEventListener('click', function() {
+            var asientoToggle = document.getElementById('asientoToggle');
+            var asientoLayer = document.getElementById('asientoLayer');
+            var toldoToggle = document.getElementById('toldoToggle');
+            var toldoLayer = document.getElementById('toldoLayer');
+            var colorSelect = document.getElementById('colorSelect');
+            var product = document.getElementById('product');
+
+            // Mostrar u ocultar asiento
+            asientoLayer.style.display = asientoToggle.checked ? 'block' : 'none';
+
+            // Mostrar u ocultar toldo
+            toldoLayer.style.display = toldoToggle.checked ? 'block' : 'none';
+
+            // Cambiar el color del bote
+            product.style.backgroundImage = `url(${colorSelect.value})`;
+        });
+    </script>
+</body>
+</html>
+
+</body>
+</html>
